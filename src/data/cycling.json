@@ -1,0 +1,90 @@
+{
+  "generatedAt": "2026-07-08T15:10:03+00:00",
+  "source": "https://www.procyclingstats.com/rider/vedran-cicov/",
+  "rider": {
+    "name": "Vedran Cicov",
+    "nationality": "MK",
+    "nationalityName": "North Macedonia",
+    "birthdate": "2007-03-02",
+    "team": {
+      "name": "Cycling Team Velo-M Termalift",
+      "class": "CLUB",
+      "season": 2026
+    },
+    "teams": [
+      {
+        "season": 2026,
+        "team_name": "Cycling Team Velo-M Termalift",
+        "team_url": "team/cycling-team-velo-m-termalift-2026",
+        "class": "CLUB",
+        "since": "01-01",
+        "until": "12-31"
+      },
+      {
+        "season": 2025,
+        "team_name": "Cycling Team Velo-M Termalift",
+        "team_url": "team/cycling-team-velo-m-termalift-2025",
+        "class": "CLUB",
+        "since": "01-01",
+        "until": "12-31"
+      }
+    ]
+  },
+  "results": [
+    {
+      "date": "2026-06-27",
+      "rank": 2,
+      "race": "National Championships North Macedonia MU - ITT",
+      "raceClass": "NC",
+      "country": "MK",
+      "distanceKm": null,
+      "uciPoints": 15.0,
+      "pcsPoints": 0,
+      "url": "https://www.procyclingstats.com/race/national-championships-north-macedonia-mu-itt/2026/result"
+    },
+    {
+      "date": "2026-04-18",
+      "rank": null,
+      "race": "Tour of Bosnia and Herzegovina | Stage 2",
+      "raceClass": "2.2",
+      "country": "BA",
+      "distanceKm": 121.1,
+      "uciPoints": 0,
+      "pcsPoints": 0,
+      "url": "https://www.procyclingstats.com/race/tour-of-bosnia-and-herzegovina/2026/stage-2"
+    },
+    {
+      "date": "2026-04-17",
+      "rank": 132,
+      "race": "Tour of Bosnia and Herzegovina | Stage 1",
+      "raceClass": "2.2",
+      "country": "BA",
+      "distanceKm": 139.4,
+      "uciPoints": 0,
+      "pcsPoints": 0,
+      "url": "https://www.procyclingstats.com/race/tour-of-bosnia-and-herzegovina/2026/stage-1"
+    },
+    {
+      "date": "2025-06-28",
+      "rank": 4,
+      "race": "National Championships North Macedonia MJ - Road Race",
+      "raceClass": "NC",
+      "country": "MK",
+      "distanceKm": null,
+      "uciPoints": 0,
+      "pcsPoints": 18,
+      "url": "https://www.procyclingstats.com/race/nc-macedonia-mj/2025/result"
+    },
+    {
+      "date": "2025-06-27",
+      "rank": 2,
+      "race": "National Championships North Macedonia MJ - ITT",
+      "raceClass": "NC",
+      "country": "MK",
+      "distanceKm": null,
+      "uciPoints": 0,
+      "pcsPoints": 22,
+      "url": "https://www.procyclingstats.com/race/national-championships-north-macedonia-mj-itt/2025/result"
+    }
+  ]
+}

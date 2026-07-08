@@ -16,14 +16,14 @@ _Stardew Valley_-style pixel theme, built with [Astro](https://astro.build).
 
 ## Commands
 
-| Command           | Action                                   |
-| :---------------- | :--------------------------------------- |
-| `npm install`     | Install dependencies                     |
-| `npm run dev`     | Start the dev server at `localhost:4321` |
-| `npm run build`   | Build the production site to `./dist/`   |
-| `npm run preview` | Preview the production build locally     |
-| `npm run check`   | Type-check the project (`astro check`)   |
-| `npm run format`  | Format all files with Prettier           |
+| Command                 | Action                                              |
+| :---------------------- | :-------------------------------------------------- |
+| `npm install`           | Install dependencies                                |
+| `npm run dev`           | Start the dev server at `localhost:4321`            |
+| `npm run build`         | Build the production site to `./dist/`              |
+| `npm run preview`       | Preview the production build locally                |
+| `npm run check`         | Type-check the project (`astro check`)              |
+| `npm run format`        | Format all files with Prettier                      |
 | `npm run sync:projects` | Pull public GitHub repos → `src/data/projects.json` |
 
 ## Project structure
@@ -38,6 +38,17 @@ src/
 ├─ styles/       # design tokens + global styles
 └─ assets/       # fonts, pixel art
 scripts/         # scrape_pcs.py and helpers
+```
+
+## Refreshing cycling data
+
+PCS is behind Cloudflare, so the scraper impersonates a real browser (`curl_cffi`).
+One-time setup, then run whenever you want fresh results:
+
+```sh
+python3 -m venv .venv
+.venv/bin/pip install -r scripts/requirements.txt
+.venv/bin/python scripts/scrape_pcs.py   # writes src/data/cycling.json
 ```
 
 ## Git workflow

@@ -1,0 +1,6 @@
+# Dependencies for scripts/scrape_pcs.py (cycling data).
+# procyclingstats scrapes procyclingstats.com; curl_cffi impersonates a real
+# browser to get past Cloudflare's bot challenge (a plain request gets a 403
+# "Just a moment..." page).
+procyclingstats>=0.2.8
+curl_cffi>=0.7
