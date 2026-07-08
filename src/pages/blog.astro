@@ -1,0 +1,24 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import WoodPanel from '../components/WoodPanel.astro';
+---
+
+<BaseLayout title="Blog" description="Blog posts by Vedran Chichov.">
+  <section class="container stub">
+    <h1>Blog</h1>
+    <WoodPanel>
+      <p class="pixel-label">📓 Under construction</p>
+      <p>Posts — written in Obsidian — will be planted here in an upcoming update.</p>
+    </WoodPanel>
+  </section>
+</BaseLayout>
+
+<style>
+  .stub {
+    padding-block: clamp(2rem, 6vw, 3.5rem);
+    max-width: 720px;
+  }
+  .pixel-label {
+    color: var(--accent-strong);
+  }
+</style>

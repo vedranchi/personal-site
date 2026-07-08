@@ -1,6 +1,6 @@
-# portfolio-site
+# personal-site
 
-Vladimir's personal site — programming projects, cycling, and a blog. Cozy
+Vedran Chichov's personal site — programming projects, cycling, and a blog. Cozy
 _Stardew Valley_-style pixel theme, built with [Astro](https://astro.build).
 
 ## Tech at a glance

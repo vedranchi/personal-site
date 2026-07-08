@@ -1,0 +1,57 @@
+---
+// Pixel-styled button. Renders as <a> when `href` is given, otherwise a <button>.
+interface Props {
+  href?: string;
+  variant?: 'primary' | 'ghost';
+  class?: string;
+  type?: 'button' | 'submit';
+}
+const { href, variant = 'primary', class: className = '', type = 'button' } = Astro.props;
+const Tag = href ? 'a' : 'button';
+---
+
+<Tag class:list={['pixel-btn', `is-${variant}`, className]} {...href ? { href } : { type }}>
+  <slot />
+</Tag>
+
+<style>
+  .pixel-btn {
+    display: inline-block;
+    font-family: var(--font-pixel);
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-decoration: none;
+    line-height: 1;
+    padding: 0.75em 1.1em;
+    cursor: pointer;
+    border: 3px solid var(--frame-dark);
+    border-radius: var(--radius);
+    box-shadow: var(--pixel) var(--pixel) 0 0 var(--frame-dark);
+    transition:
+      transform 0.05s ease,
+      box-shadow 0.05s ease,
+      background-color 0.1s ease;
+  }
+  .is-primary {
+    background: var(--accent);
+    color: var(--on-accent);
+  }
+  .is-primary:hover {
+    background: var(--accent-strong);
+    color: var(--on-accent);
+  }
+  .is-ghost {
+    background: var(--surface);
+    color: var(--text);
+  }
+  .is-ghost:hover {
+    background: var(--surface-2);
+    color: var(--text);
+  }
+  /* pressed-in effect: button slides into its shadow */
+  .pixel-btn:active {
+    transform: translate(var(--pixel), var(--pixel));
+    box-shadow: 0 0 0 0 var(--frame-dark);
+  }
+</style>

@@ -1,17 +1,132 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import WoodPanel from '../components/WoodPanel.astro';
+import PixelButton from '../components/PixelButton.astro';
+import { site } from '../data/site';
 
+// Home page "shop-window" cards. Copy is placeholder — Vedran, edit freely!
+const cards = [
+  {
+    href: '/projects',
+    icon: '💻',
+    title: 'Projects',
+    blurb: 'Things I have built — apps, tools, and experiments, with the tech behind them.',
+  },
+  {
+    href: '/cycling',
+    icon: '🚲',
+    title: 'Cycling',
+    blurb: 'Races, results, and numbers pulled straight from my ProCyclingStats page.',
+  },
+  {
+    href: '/blog',
+    icon: '📓',
+    title: 'Blog',
+    blurb: 'Notes and stories on code, riding, and whatever else I am figuring out.',
+  },
+];
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
-  </head>
-  <body>
-    <h1>Astro</h1>
-  </body>
-</html>
+<BaseLayout>
+  <section class="hero container">
+    <p class="eyebrow pixel-label">Welcome to my little farm on the web</p>
+    <h1 class="hero-title">{site.name}</h1>
+    <p class="hero-tagline">{site.tagline}</p>
+    <p class="hero-intro">
+      Hey, I'm Vedran — a fresh high-school grad from Macedonia who spends his time
+      <strong>writing code</strong> and <strong>riding bikes</strong>. This is where I keep my
+      projects, my race results, and the odd blog post. Pull up a stool and have a look around.
+    </p>
+    <div class="hero-cta">
+      <PixelButton href="/projects">See my projects</PixelButton>
+      <PixelButton href="/cycling" variant="ghost">My cycling</PixelButton>
+    </div>
+  </section>
+
+  <section class="container cards" aria-label="Explore the site">
+    {
+      cards.map((card) => (
+        <WoodPanel as="article" class="card">
+          <span class="card-icon" aria-hidden="true">
+            {card.icon}
+          </span>
+          <h2 class="card-title">{card.title}</h2>
+          <p class="card-blurb">{card.blurb}</p>
+          <a class="card-link pixel-label" href={card.href}>
+            Enter →
+          </a>
+        </WoodPanel>
+      ))
+    }
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    padding-block: clamp(2.5rem, 8vw, 5rem) 2rem;
+    text-align: center;
+    max-width: 780px;
+  }
+  .eyebrow {
+    color: var(--accent-strong);
+    margin: 0 0 0.75rem;
+  }
+  .hero-title {
+    margin: 0;
+    text-shadow: var(--pixel) var(--pixel) 0 var(--frame-dark);
+  }
+  .hero-tagline {
+    font-family: var(--font-num);
+    font-size: 1.8rem;
+    letter-spacing: 0.03em;
+    color: var(--highlight);
+    margin: 0.25rem 0 1.25rem;
+  }
+  .hero-intro {
+    margin-inline: auto;
+    max-width: 60ch;
+    color: var(--text-muted);
+  }
+  .hero-intro strong {
+    color: var(--text);
+  }
+  .hero-cta {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 1.75rem;
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    padding-block: 1.5rem 1rem;
+  }
+  .card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .card-icon {
+    font-size: 2rem;
+  }
+  .card-title {
+    margin: 0;
+  }
+  .card-blurb {
+    margin: 0;
+    color: var(--text-muted);
+    flex: 1;
+  }
+  .card-link {
+    align-self: flex-start;
+    margin-top: 0.5rem;
+    text-decoration: none;
+    color: var(--accent-strong);
+  }
+  .card-link:hover {
+    color: var(--link-hover);
+  }
+</style>
