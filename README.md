@@ -58,4 +58,27 @@ Work happens on feature branches (`feat/...`); finished, reviewed work merges to
 
 ## Writing a blog post (Obsidian)
 
-_Documented in Milestone 3 once the Obsidian loader is wired up._
+Open the `src/content/blog/` folder as an Obsidian vault (Open folder as vault). Each
+`.md` file in there is one post. Add this frontmatter at the top:
+
+```markdown
+---
+title: My post title
+description: One line shown in listings and previews.
+pubDate: 2026-07-08
+tags: [cycling, code]
+draft: false
+---
+
+Write your post here in normal Markdown.
+```
+
+- **Filename = URL**: `my-post.md` → `/blog/my-post`.
+- **Drafts**: `draft: true` hides a post in the built site but shows it in `npm run dev`.
+- **Wiki links**: `[[my-post]]` or `[[my-post|custom text]]` link to another post
+  (resolves to `/blog/<slug>`). See `src/lib/remark-wikilinks.mjs`.
+- **Images**: put an image next to the post and use standard Markdown:
+  `![alt text](./my-image.png)` — Astro optimizes it at build.
+- **Tags** get their own pages at `/blog/tags/<tag>`, and posts appear in `/rss.xml`.
+
+Commit the file on a `feat/...` branch; it appears on the site after review + deploy.

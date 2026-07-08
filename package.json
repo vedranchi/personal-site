@@ -15,10 +15,13 @@
     "sync:projects": "node scripts/fetch_github.mjs"
   },
   "dependencies": {
+    "@astrojs/markdown-remark": "^7.2.1",
+    "@astrojs/rss": "^4.0.19",
     "@fontsource/pixelify-sans": "^5.2.7",
     "@fontsource/silkscreen": "^5.2.8",
     "@fontsource/vt323": "^5.2.7",
-    "astro": "^7.0.6"
+    "astro": "^7.0.6",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.9",

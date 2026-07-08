@@ -1,0 +1,89 @@
+/* Readable article styling for rendered Markdown (blog posts). */
+
+.prose {
+  font-size: 1.08rem;
+  line-height: 1.75;
+  color: var(--text);
+}
+
+.prose > * + * {
+  margin-top: 1.1rem;
+}
+
+.prose h2,
+.prose h3,
+.prose h4 {
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+.prose h2 {
+  font-size: 1.6rem;
+}
+.prose h3 {
+  font-size: 1.3rem;
+}
+
+.prose a {
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.prose a:hover {
+  color: var(--link-hover);
+}
+
+/* Obsidian [[wiki links]] get a subtle dashed underline to set them apart. */
+.prose a.wikilink {
+  text-decoration-style: dashed;
+}
+
+.prose ul,
+.prose ol {
+  padding-left: 1.4rem;
+}
+.prose li + li {
+  margin-top: 0.35rem;
+}
+
+.prose img {
+  border: 3px solid var(--frame-dark);
+  border-radius: var(--radius);
+}
+
+.prose blockquote {
+  margin: 1.4rem 0;
+  padding: 0.5rem 1rem;
+  border-left: 4px solid var(--accent);
+  background: var(--surface-2);
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.prose code {
+  font-family: var(--font-num), ui-monospace, monospace;
+  font-size: 1.05em;
+  background: var(--surface-2);
+  border: 2px solid var(--frame);
+  border-radius: 3px;
+  padding: 0.05em 0.35em;
+}
+
+.prose pre {
+  padding: 1rem;
+  border: 3px solid var(--frame-dark);
+  border-radius: var(--radius);
+  overflow-x: auto;
+}
+.prose pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 0.95rem;
+}
+
+.prose hr {
+  border: none;
+  border-top: 3px dashed var(--frame);
+  margin: 2rem 0;
+}
