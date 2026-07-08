@@ -27,3 +27,6 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# obsidian vault config (blog content is an obsidian vault)
+.obsidian/
