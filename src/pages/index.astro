@@ -8,19 +8,16 @@ import { site } from '../data/site';
 const cards = [
   {
     href: '/projects',
-    icon: '💻',
     title: 'Projects',
     blurb: 'Things I have built — apps, tools, and experiments, with the tech behind them.',
   },
   {
     href: '/cycling',
-    icon: '🚲',
     title: 'Cycling',
     blurb: 'Races, results, and numbers pulled straight from my ProCyclingStats page.',
   },
   {
     href: '/blog',
-    icon: '📓',
     title: 'Blog',
     blurb: 'Notes and stories on code, riding, and whatever else I am figuring out.',
   },
@@ -47,9 +44,6 @@ const cards = [
     {
       cards.map((card) => (
         <WoodPanel as="article" class="card">
-          <span class="card-icon" aria-hidden="true">
-            {card.icon}
-          </span>
           <h2 class="card-title">{card.title}</h2>
           <p class="card-blurb">{card.blurb}</p>
           <a class="card-link pixel-label" href={card.href}>
@@ -109,8 +103,16 @@ const cards = [
     flex-direction: column;
     gap: 0.4rem;
   }
-  .card-icon {
-    font-size: 2rem;
+  /* small pixel accent bar in place of an icon */
+  .card::before {
+    content: '';
+    display: block;
+    width: 2.5rem;
+    height: 0.5rem;
+    margin-bottom: 0.6rem;
+    background: var(--accent);
+    border: 2px solid var(--frame-dark);
+    border-radius: 2px;
   }
   .card-title {
     margin: 0;

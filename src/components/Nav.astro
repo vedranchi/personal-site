@@ -10,7 +10,7 @@ const isActive = (href: string) =>
 <header class="site-header">
   <nav class="container nav" aria-label="Primary">
     <a href="/" class="brand">
-      <span class="brand-mark" aria-hidden="true">🌱</span>
+      <span class="brand-mark" aria-hidden="true"></span>
       <span class="brand-name">{site.shortName}</span>
     </a>
 
@@ -65,7 +65,11 @@ const isActive = (href: string) =>
     font-weight: 700;
   }
   .brand-mark {
-    font-size: 1.3rem;
+    width: 1.05rem;
+    height: 1.05rem;
+    background: var(--accent);
+    border: 3px solid var(--frame-dark);
+    border-radius: 2px;
   }
   .nav-end {
     display: flex;
