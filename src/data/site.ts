@@ -7,8 +7,7 @@ export const site = {
   description:
     'Personal site of Vedran Chichov — programming projects, cycling, and a blog. ' +
     'A fresh high-school grad from Macedonia building things and riding bikes.',
-  // TODO: set to the real URL once the DuckDNS subdomain is chosen (used for SEO/RSS).
-  url: 'https://vedran.example.duckdns.org',
+  url: 'https://vchichov.duckdns.org',
   nav: [
     { href: '/', label: 'Home' },
     { href: '/projects', label: 'Projects' },
