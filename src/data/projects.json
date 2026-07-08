@@ -1,0 +1,26 @@
+{
+  "generatedAt": "2026-07-08T15:02:17.499Z",
+  "user": "vedranchi",
+  "projects": [
+    {
+      "name": "pos-system",
+      "description": "POS-system for reastaurants/cafes",
+      "url": "https://github.com/vedranchi/pos-system",
+      "homepage": null,
+      "language": null,
+      "topics": [],
+      "stars": 0,
+      "updatedAt": "2026-07-07T13:31:51Z"
+    },
+    {
+      "name": "glucolog",
+      "description": "Diabetes Tracking App",
+      "url": "https://github.com/vedranchi/glucolog",
+      "homepage": null,
+      "language": "Python",
+      "topics": [],
+      "stars": 0,
+      "updatedAt": "2026-06-24T15:03:11Z"
+    }
+  ]
+}

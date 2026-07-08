@@ -24,6 +24,7 @@ _Stardew Valley_-style pixel theme, built with [Astro](https://astro.build).
 | `npm run preview` | Preview the production build locally     |
 | `npm run check`   | Type-check the project (`astro check`)   |
 | `npm run format`  | Format all files with Prettier           |
+| `npm run sync:projects` | Pull public GitHub repos → `src/data/projects.json` |
 
 ## Project structure
 

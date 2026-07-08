@@ -11,7 +11,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "check": "astro check",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "sync:projects": "node scripts/fetch_github.mjs"
   },
   "dependencies": {
     "@fontsource/pixelify-sans": "^5.2.7",
