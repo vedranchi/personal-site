@@ -11,6 +11,12 @@ const USER = process.env.GITHUB_USER ?? 'vedranchi';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const OUT = join(__dirname, '..', 'src', 'data', 'projects.json');
 
+// GitHub's linguist can return an empty language breakdown for some repos
+// (e.g. pos-system). Fill those in by hand rather than showing nothing.
+const MANUAL_LANGUAGES = {
+  'pos-system': ['TypeScript', 'Python', 'SQL', 'Dockerfile'],
+};
+
 const headers = {
   Accept: 'application/vnd.github+json',
   'X-GitHub-Api-Version': '2022-11-28',
@@ -27,19 +33,37 @@ if (!res.ok) {
 }
 const repos = await res.json();
 
-const projects = repos
-  // Showcase = the user's own, visible work.
-  .filter((r) => !r.fork && !r.archived && !r.private)
-  .map((r) => ({
-    name: r.name,
-    description: r.description ?? '',
-    url: r.html_url,
-    homepage: r.homepage || null,
-    language: r.language ?? null,
-    topics: r.topics ?? [],
-    stars: r.stargazers_count ?? 0,
-    updatedAt: r.pushed_at,
-  }))
+async function fetchLanguages(repo) {
+  const res = await fetch(`https://api.github.com/repos/${USER}/${repo.name}/languages`, {
+    headers,
+  });
+  if (!res.ok) {
+    throw new Error(`GitHub API ${res.status} ${res.statusText}: ${await res.text()}`);
+  }
+  const byBytes = await res.json();
+  // Most-used language first.
+  const detected = Object.entries(byBytes)
+    .sort((a, b) => b[1] - a[1])
+    .map(([name]) => name);
+  return detected.length > 0 ? detected : (MANUAL_LANGUAGES[repo.name] ?? []);
+}
+
+const showcased = repos.filter((r) => !r.fork && !r.archived && !r.private);
+
+const projects = (
+  await Promise.all(
+    showcased.map(async (r) => ({
+      name: r.name,
+      description: r.description ?? '',
+      url: r.html_url,
+      homepage: r.homepage || null,
+      languages: await fetchLanguages(r),
+      topics: r.topics ?? [],
+      stars: r.stargazers_count ?? 0,
+      updatedAt: r.pushed_at,
+    })),
+  )
+)
   // Most recently worked-on first.
   .sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt));
 
