@@ -1,26 +1,26 @@
 {
-  "generatedAt": "2026-07-13T13:17:50.694Z",
+  "generatedAt": "2026-07-13T13:34:45.904Z",
   "user": "vedranchi",
   "projects": [
-    {
-      "name": "rajhl-site",
-      "description": "Website for producer Luka Rajhl",
-      "url": "https://github.com/vedranchi/rajhl-site",
-      "homepage": "https://rajhl-site.vercel.app",
-      "languages": ["TypeScript", "CSS", "JavaScript"],
-      "topics": [],
-      "stars": 0,
-      "updatedAt": "2026-07-13T12:53:37Z"
-    },
     {
       "name": "personal-site",
       "description": "personal website",
       "url": "https://github.com/vedranchi/personal-site",
       "homepage": null,
-      "languages": ["Astro", "CSS", "JavaScript", "Python", "TypeScript"],
+      "languages": ["Astro", "JavaScript", "CSS", "Python", "TypeScript"],
       "topics": [],
       "stars": 0,
-      "updatedAt": "2026-07-08T17:39:29Z"
+      "updatedAt": "2026-07-13T13:26:06Z"
+    },
+    {
+      "name": "rajhl-site",
+      "description": "Website for producer Luka Rajhl",
+      "url": "https://github.com/vedranchi/rajhl-site",
+      "homepage": "https://lukarajhl.vercel.app",
+      "languages": ["TypeScript", "CSS", "JavaScript"],
+      "topics": [],
+      "stars": 0,
+      "updatedAt": "2026-07-13T12:53:37Z"
     },
     {
       "name": "pos-system",
