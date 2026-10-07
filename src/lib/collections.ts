@@ -1,14 +1,27 @@
 import { defineCollection } from 'astro:content';
 import { z } from 'zod';
 import { glob } from 'astro/loaders';
+import { basename } from 'node:path';
+import { slugify } from './remark-wikilinks.mjs';
 
 // Blog posts are Markdown files in src/content/blog — this is the Obsidian vault.
 // Point Obsidian at that folder and write normally; frontmatter drives the site.
 //
 // `base` resolves against the Astro `root`, which stays at the repo root for both builds,
 // so this path is correct from either site and the vault never has to move.
+//
+// template.md is the vault's blank post for Obsidian's Templates plugin — its empty fields
+// would fail the schema, so it is never loaded as a post.
+//
+// Subfolders (cycling/, tech/, …) only organise the vault: a post's id — and so its URL —
+// is its filename alone, slugified exactly as [[wikilinks]] are, so `[[name]]` resolves
+// the way Obsidian resolves it. Filenames must therefore be unique across folders.
 const blog = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/blog' }),
+  loader: glob({
+    pattern: ['**/*.md', '!template.md'],
+    base: './src/content/blog',
+    generateId: ({ entry }) => slugify(basename(entry, '.md')),
+  }),
   schema: z.object({
     title: z.string(),
     description: z.string().optional(),

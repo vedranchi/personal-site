@@ -8,7 +8,7 @@
 
 const WIKILINK = /\[\[([^\]]+?)\]\]/g;
 
-function slugify(name) {
+export function slugify(name) {
   return name
     .trim()
     .toLowerCase()
